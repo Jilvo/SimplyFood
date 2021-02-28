@@ -1,0 +1,8 @@
+/venv/
+db.sqlite3
+manage_user/__pycache__/
+manage_user/__init__.py
+recipe_list/__init__.py
+SimplyShop/__init__.py
+recipe_list/__pycache__/
+SimplyShop/__pycache__/

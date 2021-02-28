@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!--Custom styles-->
+<title>Création de compte</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<body id="page-top" class="signup"></body>
+<style>
+	footer{
+		position: fixed;
+		
+	}
+</style>
+<!--Login Form-->
+<header class="masthead">
+<section class="page-section" id="login">
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card" style="border:4mm ridge #64a19d">
+			<div class="card-header">
+				<h3>Se connecter</h3>
+			</div>
+			<div class="card-body">
+				<form action="{% url 'signup' %}" method="POST">
+					{% csrf_token %}
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="username" name="username" id="register_username">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="password" name='password' id="register_password">
+                    </div>
+                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-mail-bulk"></i></span>
+						</div>
+						<input type="email" class="form-control" placeholder="email" name="email" id="register_email">
+					</div>
+						<div class="form-group">
+							<input type="submit" value="C'est parti" class="btn float-right login_btn">
+						</div>
+					
+				</form>
+			</div>
+				<div class="d-flex justify-content-center links margin_bot" style="margin: 10px;">
+					Vous possédez déjà un compte ?<a href="login" class="margin_10">Par ici !</a>
+				</div>
+		</div>
+	</div>
+</div>
+</section>
+{% endblock %}
