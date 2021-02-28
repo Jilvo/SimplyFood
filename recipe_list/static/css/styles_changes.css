@@ -1,0 +1,32 @@
+.img_logo{
+    margin-right: 10px;
+    margin-top: -10px;
+}
+.footer_flexbox{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.pic_connexion{
+    filter: invert(1);
+    margin-right: 10px;
+}
+.line_home{
+    max-width: 10.25rem;
+}
+.button_connexion{
+    margin-right: 10px;
+}
+
+.login{
+    background-image: url('/static/assets/img/bg-masthead.jpg');
+    }
+
+.card_connexion{
+    border: 4mm ridge rgba(170, 50, 220, .6);
+}
+.margin_10{
+    margin-left: 10px;
+}
+.font-color{
+    color: aliceblue;
+}
