@@ -3,6 +3,10 @@
 {% block content %}
 <!--Custom styles-->
 <title>Connexion</title>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<body id="page-top" class="signup">
 
 <body id="page-top" class="signup"></body>
 <style>
@@ -14,30 +18,72 @@
 
 <!--Login Form-->
 <header class="masthead">
-    <section>
-      <form class="form-inline" action="{% url 'recipe' %}" method="GET" accept-charset="utf-8">
-        <input class="form-control mr-sm-2" placeholder="Faire une recherche" name="query" id="query">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      <button onclick="Add_Row()">Add</button>
-        <table id="table_recipe" class="table table-bordered table-dark">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Déjeuner</th>
-                <th scope="col">Dîner</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td><input class="form-control mr-sm-2" placeholder="Faire une recherche" name="query" id="query"></td>
-                <td><input class="form-control mr-sm-2" placeholder="Faire une recherche" name="query" id="query"></td>
-              </tr>
-              <tr>
-              </tr>
-            </tbody>
-          </table>
-        </form>
-    </section>
+  <section>
+  <button onclick="Add_Row()">Call function</button>
+  <button value="Add a field" class="add" id="add" onclick="Add_Row()">Add a field</button>
+  <button value="Generate" class="add" id="preview" onclick="Add_Row()">Generate</button>>
+  <table id="table_recipe" class="table table-bordered table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Déjeuner</th>
+        <th scope="col">Dîner</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      </tr>
+      <tr>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+  &nbsp;
+  <script>
+    $(document).ready(function() {
+    
+    $("#preview").click(function() {
+        var arr = {};
+        arr.items = [];
+    
+        $(".fieldwrapper").each(function() {
+            var entry = {}
+            var lunch = $(this).find("input[name='lunch']").val();            
+            var supper = $(this).find("input[name='supper']").val();
+            entry["lunch"] = lunch;
+            entry["supper"] = supper;
+            arr.items.push(entry);
+        });
+        alert (JSON.stringify(arr, null, 4));
+    });
+    
+    $("#add").click(function() {
+        var intId = $("#buildyourform div").length + 1;
+        var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
+        var name = $("<td><input class='form-control mr-sm-2 input_recipe' placeholder='Faire une recherche' name='lunch' id='query'></td>");
+           var supper = $("<td><input class='form-control mr-sm-2 input_recipe' placeholder='Faire une recherche' name='supper' id='query'></td>");
+
+        var removeButton = $("<td><input type=\"button\"class=\"remove btn btn-outline-secondary\" value=\"Remove\" /></td>");
+        removeButton.click(function() {
+            $(this).parent().remove();
+        });
+        fieldWrapper.append(name);
+                fieldWrapper.append(supper);
+
+        fieldWrapper.append(removeButton);
+        $("#table_recipe").append(fieldWrapper);
+    });
+
+});
+
+  
+  </script>
+
+  
+  </section>
+
+  
+
 </header>
 {% endblock %}
