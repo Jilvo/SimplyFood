@@ -1,7 +1,6 @@
 from django.shortcuts import render
 import requests
 from google_trans_new import google_translator
-import os
 # Create your views here.
 
 def home_function(request):
@@ -12,7 +11,6 @@ def recipe_table(request):
 
 def find_ingredients(request):
     """search the ingredients of a recipe"""
-    API_FOOD_KEY = os.environ.get("API_FOOD_KEY")
     query = request.GET.get("query")
     print(query)
     dict_recipe = {}
@@ -22,7 +20,7 @@ def find_ingredients(request):
 
     querystring = {"q": translate_query}
     headers = {
-        'x-rapidapi-key': API_FOOD_KEY,
+        'x-rapidapi-key': "1a40c2e594msh2ded76b4149b2fep16ffb7jsn3c68dce1fa6b",
         'x-rapidapi-host': "edamam-recipe-search.p.rapidapi.com"
         }
 
