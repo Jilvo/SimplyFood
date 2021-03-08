@@ -21,12 +21,12 @@
   <section>
   <!-- <button onclick="Add_Row()">Call function</button> -->
   <button value="Add a field" class="add" id="add" onclick="add_row()">Add a field</button>
-  <button value="Generate" class="add" id="preview" onclick="generate()">Generate</button>
-  <button value="" class="" id="" onclick="Parse_json()">Parse Json</button>
+  <button value="Generate" class="add" id="preview" onclick="extract_to_json()">Generate</button>
+  <button value="" class="" id="" onclick="">Send Json</button>
   <table id="table_recipe" class="table table-bordered table-dark">
     <thead>
       <tr>
-        <th scope="col">Row</th>
+        <th scope="col">Jour</th>
         <th scope="col">Déjeuner</th>
         <th scope="col">Dîner</th>
         <th scope="col">Delete</th>
@@ -37,11 +37,12 @@
 </fieldset>
   &nbsp;
   <script>
+    // Increment row
     var i = 0;
      function buttonClick() {
         i++;
      }
-
+     //add one row
     let add_row = function() {
       let tbody = $("tbody");
       const row_id = tbody.length + i;
@@ -49,57 +50,36 @@
       $("tbody").append(`
       <tr id=tr_row_${row_id}>
         <td>${row_id}</td>
-        <td><input class='form-control mr-sm-2 input_recipe' placeholder='Faire une recherche' name='lunch' id='query'></td>
-        <td><input class='form-control mr-sm-2 input_recipe' placeholder='Faire une recherche' name='supper' id='query'></td>
+        <td><input class='form-control mr-sm-2 input_recipe recipe_input' placeholder='Faire une recherche' name='lunch' id='lunch_${row_id}'></td>
+        <td><input class='form-control mr-sm-2 input_recipe recipe_input' placeholder='Faire une recherche' name='supper' id='supper_${row_id}'></td>
         <td><input type="button" class="remove btn btn-outline-secondary" onclick="remove_row(${row_id})" value="Remove"/></td>
       </tr>
       `
       );
     }
-
+    // delete a specific row
     let remove_row = function(row_id) {
       $("#tr_row_"+ row_id).remove();
-
     }
-
-    let extract_to_json = function() {
-      let results = {};
-      jsonn.results = [];
-      $("tbody > tr").each(element => {
-
-        results.push();
+    // create Json with all of the input
+    let extract_to_json = function(row_id) {
+      console.log("Json crée")
+      let results = []
+      // console.log($("tr .recipe_input").val());
+      // $("tr .recipe_input").each(() =>{ 
+      //   console.log($(this).val());
+      // });
+      $('tr .recipe_input').each(function () {
+      console.log($(this).val());
+      results.push($(this).val())
       });
-    }
-  
+      console.log(results);
+      alert (results)
+    };
 
-
-    $(document).ready(function() {
-    
-    $("#preview").click(function() {
-        var arr = {};
-        arr.items = [];
-    
-        $(".fieldwrapper").each(function() {
-            var entry = {}
-            var lunch = $(this).find("input[name='lunch']").val();            
-            var supper = $(this).find("input[name='supper']").val();
-            entry["lunch"] = lunch;
-            entry["supper"] = supper;
-            arr.items.push(entry);
-        });
-        alert (JSON.stringify(arr, null, 4));
-    });
-    
-
-});
-
-  
   </script>
 
-  
   </section>
-
-  
 
 </header>
 {% endblock %}
