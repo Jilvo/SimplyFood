@@ -81,7 +81,8 @@
     };
 
     // post with ajax,the data is the Json's recipe
-    let send_json = function(json_list = extract_to_json()){
+    let send_json = function(){
+      let json_list = extract_to_json()
       console.log(json_list)
       $.ajax({
       type: 'GET',

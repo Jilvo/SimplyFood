@@ -1,5 +1,5 @@
-# SimplyShop
-## SimplyShop will help you by creating a food list for you
+# SimplyFood
+## SimplyFood will help you by creating a food list for you
 
 ## Versioning :
 V0.1 Initialisation of the Project

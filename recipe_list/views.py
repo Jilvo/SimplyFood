@@ -15,7 +15,12 @@ def find_ingredients(request):
     """search the ingredients of a recipe"""
     # API_FOOD_KEY = os.environ.get("API_FOOD_KEY")
     query = request.GET.get("json_list")
-    print(query)
+    if not query : 
+        print("Rien n'est trouvé")
+        print(query)
+    else:
+        print("Resultat")
+        print(query)
     # json_data = request.read()
     # data = json.loads(query)
     # print(data)
