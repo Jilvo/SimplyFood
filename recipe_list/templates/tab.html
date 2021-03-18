@@ -23,10 +23,11 @@
   
   <button value="Add a field" class="add" id="add" onclick="add_row()">Add a field</button>
   <button value="Generate" class="add" id="preview" onclick="extract_to_json()">Generate</button>
-  <!-- <form action="{% url 'recipe' %}" method="POST" accept-charset="utf-8">
-    {% csrf_token %} -->
-  <button value="" class="" id="" onclick="send_json()">Send Json</button>
-  <!-- </form> -->
+  <!-- <button value="" class="" id="" onclick="print_input()">Fill in </button> -->
+ <!-- <form action="{% url 'recipe' %}" method="GET" accept-charset="utf-8"> -->
+  <button value="json_list" class="" id="json_list" type="submit" onclick="send_json()">Send Json</button>
+    <!-- <p id="query" type="submit"></p> -->
+    <!-- </form> -->
   <table id="table_recipe" class="table table-bordered table-dark">
     <thead>
       <tr>
@@ -77,10 +78,18 @@
       
       results.push($(this).val())
       });
-      return results
+      newString = JSON.stringify(results, null, 0)
+      console.log(newString)
+      // document.getElementById("query").innerHTML = newString;
+      return newString
     };
 
-    // post with ajax,the data is the Json's recipe
+    let print_input = function(){
+      $("input#query2").append(newString); 
+      console.log("nuk");
+    };
+
+   
     let send_json = function(){
       let json_list = extract_to_json()
       console.log(json_list)
@@ -88,7 +97,7 @@
       type: 'GET',
 		  url: "/recipe",
 		  data: {
-        json_list : json_list,
+        json_list : newString,
       },
       success: function(data, textStatus, xhr) {
         console.log(xhr.status);

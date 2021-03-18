@@ -15,8 +15,26 @@
 <!--Login Form-->
 <header class="masthead">
     <section>
-      <div class="font-color">{{dict_recipe}}</div>
-      <div class="font-color">{{translate_response}}</div>
+      <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">{{title_of_the_recipe}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <th scope="row">{{dict_recipe}}</th>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <th scope="row">{{translate_response}}</th>
+        
+          </tr>
+        </tbody>
+      </table>
+      <!-- <div class="font-color">{{translate_response}}</div> -->
     </section>
 </header>
 {% endblock %}

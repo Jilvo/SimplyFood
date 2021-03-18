@@ -39,7 +39,7 @@
                         <a class="navbar-brand" href="favorits">
                             <img src="{% static 'assets/img/carrot.png' %}" width="30" height="30" alt="carrot" loading="lazy" id="carrot">
                         </a>
-                        <form action="{% url 'logout' %}" method="POST">
+                        <form action="{% url 'logout' %}" method="POST" name="logout">
                             {% csrf_token %}
                         <button type="submit" value="logout"><a class="navbar-brand" href="#">
                             <img src="{% static 'assets/img/logout.png' %}" width="30" height="30" alt="logout" loading="lazy" id="logout">
