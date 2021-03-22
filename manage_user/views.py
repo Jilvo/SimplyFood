@@ -9,19 +9,23 @@ from .forms import ConnexionForm, RegistrationForm
 # Create your views here.
 def page_not_found_view(request):
     """display the HTML code 404 page"""
-    return render(request, '404.html')
+    return render(request, "404.html")
+
 
 def page_internal_error(request):
     """display the HTML code 500 page"""
-    return render(request, '500.html')
+    return render(request, "500.html")
+
 
 def page_signin(request):
     """display the login page"""
     return render(request, "login.html")
 
+
 def page_signup(request):
     """display the signup page"""
     return render(request, "signup.html")
+
 
 def register(request):
     """function for create a account """
@@ -58,9 +62,7 @@ def connexion(request):
         print(username)
         print(password)
 
-        user = authenticate(
-            username=username, password=password
-        )
+        user = authenticate(username=username, password=password)
         print(user)
         if user is not None:  # Si l'objet renvoyé n'est pas None
             login(request, user)  # nous connectons l'utilisateur
