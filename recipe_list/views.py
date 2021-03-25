@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 import requests
 from google_trans_new import google_translator
 from django.contrib.auth.decorators import login_required
@@ -14,6 +15,39 @@ def home_function(request):
 
 def recipe_table(request):
     return render(request, "tab.html")
+
+def find_name_recipe(request):
+    if request.is_ajax():    
+        query = request.GET.get("term")
+        print(query)
+        translate_query = google_translator().translate(query, lang_tgt="en")
+        url = "https://edamam-recipe-search.p.rapidapi.com/search"
+
+        querystring = {"q": translate_query}
+        headers = {
+            "x-rapidapi-key": 'API_FOOD_KEY',
+            "x-rapidapi-host": "edamam-recipe-search.p.rapidapi.com",
+        }
+
+        response = requests.request("GET", url, headers=headers, params=querystring)
+        list_name_recipe = []
+        recipe = response.json()["hits"]
+        for label in recipe:
+            recipe_dict = label["recipe"]
+            name_recipe = recipe_dict["label"]
+            translate_response_recipe = google_translator().translate(
+                name_recipe, lang_tgt="fr"
+            )
+            list_name_recipe.append(translate_response_recipe)
+        data = json.dumps(list_name_recipe)
+        print(list_name_recipe)
+    else :
+        data = 'fail'  
+
+    # translate_response_recipe = google_translator().translate(
+    #             name_recipe, lang_tgt="fr")
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)
 
 
 def find_ingredients(request):
@@ -37,7 +71,7 @@ def find_ingredients(request):
 
             querystring = {"q": translate_query}
             headers = {
-                "x-rapidapi-key": "API_FOOD_KEY",
+                "x-rapidapi-key": 'API_FOOD_KEY',
                 "x-rapidapi-host": "edamam-recipe-search.p.rapidapi.com",
             }
             response = requests.request("GET", url, headers=headers, params=querystring)

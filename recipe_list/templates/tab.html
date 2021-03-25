@@ -3,8 +3,13 @@
 {% block content %}
 <!--Custom styles-->
 <title>Connexion</title>
-<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <body id="page-top" class="signup">
 
@@ -39,6 +44,10 @@
     </thead>
     <tbody></tbody>
   </table>
+  <div class="ui-widget">
+  <input id="tags">
+</div>
+
 </fieldset>
   &nbsp;
   <script>
@@ -55,8 +64,8 @@
       $("tbody").append(`
       <tr id=tr_row_${row_id}>
         <td>${row_id}</td>
-        <td><input class='form-control mr-sm-2 input_recipe recipe_input' placeholder='Faire une recherche' name='lunch' id='lunch_${row_id}'></td>
-        <td><input class='form-control mr-sm-2 input_recipe recipe_input' placeholder='Faire une recherche' name='supper' id='supper_${row_id}'></td>
+        <td><input class='form-control mr-sm-2 input_recipe recipe_input ' placeholder='Faire une recherche' name='lunch' id='tags${row_id}'></td>
+        <td><input class='form-control mr-sm-2 input_recipe recipe_input ' placeholder='Faire une recherche' name='supper' id='supper_${row_id}'></td>
         <td><input type="button" class="remove btn btn-outline-secondary" onclick="remove_row(${row_id})" value="Remove"/></td>
       </tr>
       `
@@ -109,6 +118,11 @@
 		});
   };
 		
+  $( function() {
+    $( "#tags" ).autocomplete({
+      source: "/name_recipe"
+    });
+  } );
 
 
   </script>
