@@ -4,14 +4,11 @@
 <!--Custom styles-->
 <title>Connexion</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<body id="page-top" class="signup">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <body id="page-top" class="signup"></body>
 <style>
@@ -42,90 +39,12 @@
         <th scope="col">Delete</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+    </tbody>
   </table>
-  <div class="ui-widget">
-  <input id="tags">
-</div>
 
 </fieldset>
   &nbsp;
-  <script>
-    // Increment row
-    var i = 0;
-     function buttonClick() {
-        i++;
-     }
-     //add one row
-    let add_row = function() {
-      let tbody = $("tbody");
-      const row_id = tbody.length + i;
-      buttonClick()
-      $("tbody").append(`
-      <tr id=tr_row_${row_id}>
-        <td>${row_id}</td>
-        <td><input class='form-control mr-sm-2 input_recipe recipe_input ' placeholder='Faire une recherche' name='lunch' id='tags${row_id}'></td>
-        <td><input class='form-control mr-sm-2 input_recipe recipe_input ' placeholder='Faire une recherche' name='supper' id='supper_${row_id}'></td>
-        <td><input type="button" class="remove btn btn-outline-secondary" onclick="remove_row(${row_id})" value="Remove"/></td>
-      </tr>
-      `
-      );
-    }
-    // delete a specific row
-    let remove_row = function(row_id) {
-      $("#tr_row_"+ row_id).remove();
-    }
-    // create Json with all of the input
-    let extract_to_json = function(row_id) {
-      console.log("Json crée")
-      let results = []
-      // console.log($("tr .recipe_input").val());
-      // $("tr .recipe_input").each(() =>{ 
-      //   console.log($(this).val());
-      // });
-      $('tr .recipe_input').each(function () {
-      
-      results.push($(this).val())
-      });
-      newString = JSON.stringify(results, null, 0)
-      console.log(newString)
-      // document.getElementById("query").innerHTML = newString;
-      return newString
-    };
-
-    let print_input = function(){
-      $("input#query2").append(newString); 
-      console.log("nuk");
-    };
-
-   
-    let send_json = function(){
-      let json_list = extract_to_json()
-      console.log(json_list)
-      $.ajax({
-      type: 'GET',
-		  url: "/recipe",
-		  data: {
-        json_list : newString,
-      },
-      success: function(data, textStatus, xhr) {
-        console.log(xhr.status);
-      },
-      complete: function(xhr, textStatus) {
-        console.log(xhr.status);
-      },
-		  dataType: "json"
-		});
-  };
-		
-  $( function() {
-    $( "#tags" ).autocomplete({
-      source: "/name_recipe"
-    });
-  } );
-
-
-  </script>
 
   </section>
 
