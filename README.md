@@ -12,5 +12,7 @@ V0.4 Creation of a table for multiple research
 
 V0.5 Create Json with the inputs of the table
 
+V0.6 Add an auto completion for the input
+
 ## Author and Contribution :
 I built this program as part of an formation on OpenClassrooms. Therefore every pull request will be refused. Insted you can open an issue to signal a bug, a typographical error or just for give me an advice
