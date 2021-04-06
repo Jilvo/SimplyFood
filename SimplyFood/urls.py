@@ -28,7 +28,7 @@ urlpatterns = [
     path("login_page",manage_user_views.page_signin,name="login_page"),
     path("logout", manage_user_views.logout_view, name="logout"),
     path("signup", manage_user_views.register, name="signup"),
-    path("favorits", recipe_list_views.see_favorits, name="favorits"),
+    path("history", recipe_list_views.see_history, name="history"),
     path("recipe", recipe_list_views.find_ingredients, name="recipe"),
     path("name_recipe", recipe_list_views.find_name_recipe, name="name_recipe"),
     

@@ -18,6 +18,3 @@ class User_Recipe_list(models.Model):
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)
     list_recipe = models.CharField(max_length=200, unique=True)
 
-
-    def __str__(self):
-        return self.name
