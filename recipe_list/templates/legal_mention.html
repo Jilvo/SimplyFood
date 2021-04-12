@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<body id="page-top" class="product bg_opacity"></body>
+<header class="masthead">
+<section class="bg_footer page-section product " id="choice">
+    <div class="container">
+        <div class="row" >
+            <div class="col-lg-12 mx-auto text-center">
+                <h1 class="section-heading">Mentions légales</h1>
+                <hr class="my-5" style="color: red; width: 10cm;">
+                <h5 class="mb-4">Template bootstrap utilisé : <a href="https://startbootstrap.com/themes/creative/">Creative</a></h5>
+                <h5 class="mb-4">Les données (nom, informations) des aliments proviennent de l'API <a href="https://developer.edamam.com/">Edamam</a></h5>
+                <h5 class="mb-4">L'image de fond utilisée est disponible à cette adresse :</h5>
+                <h6 class="mb-4"> <a href="https://unsplash.com/photos/D6Tu_L3chLE">Image : Photo by @nicotitto
+                        on Unsplash</a> </h6>
+
+                <h5 class="mb-4">Toute les autres ressources sont libres de droits</h5>
+                <h5 class="mb-4">Site hébergé sur <a href="https://www.heroku.com/">Heroku</a></h5>
+            </div>
+        </div>
+
+    </div>
+</section>
+</header>
+{%endblock%}

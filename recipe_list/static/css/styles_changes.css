@@ -5,6 +5,12 @@
 .footer_flexbox{
     display: flex;
     flex-direction: row-reverse;
+    padding-bottom: 1rem !important;
+    padding-top: 1rem !important;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.login_radius{
+    border-radius: 1.5rem !important;
 }
 .pic_connexion{
     filter: invert(1);
@@ -36,4 +42,8 @@
 }
 .button_go_to_search{
  margin-top: 1.8em;
+}
+
+.bg-footer {
+    background-color: #de9440;
 }

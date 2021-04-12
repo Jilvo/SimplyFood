@@ -20,10 +20,12 @@ from manage_user import views as manage_user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("pdf",recipe_list_views.weasyprint, name="pdf"),
     path("", recipe_list_views.home_function, name="index"),
     path("tab",recipe_list_views.recipe_table, name= "tab"),
     path("404", manage_user_views.page_not_found_view,name="404"),
     path("500", manage_user_views.page_internal_error,name="500"),
+    path("legal_mention", recipe_list_views.legal_mention, name='legal_mention'),
     path("login", manage_user_views.connexion, name="login"),
     path("login_page",manage_user_views.page_signin,name="login_page"),
     path("logout", manage_user_views.logout_view, name="logout"),

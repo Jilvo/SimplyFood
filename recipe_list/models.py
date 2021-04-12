@@ -16,5 +16,6 @@ class Recipe(models.Model):
 class User_Recipe_list(models.Model):
     """Recipe_list class"""
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)
-    list_recipe = models.CharField(max_length=200, unique=True)
+    list_recipe = models.CharField(max_length=1000)
+    recipes = models.ManyToManyField("Recipe")
 

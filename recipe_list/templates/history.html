@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<header class="masthead bg-footer">
+    <section class="bg_footer page-section product " id="choice">
+        <div>
+          <h3 class="center_text"> Voici la liste des produit que vous,({{user_name}}) avez ajoutés en favoris : </h3>
+          <div class="row">
+            {% for prod in product %}
+            <div class="col-xl-4 px-xl-5 col-lg-4 col-md-5 col-sm-6 col-xs-10 mx-auto text-center" class="product_result" style="text-align: center;">
+              <h5 class="custom-color" name="product_name" style="margin-top: 20px;">{{prod.name}}</h5>
+              <div class="item" style="width: 10px;">
+                <span class="notify-badge" name="nutrition_grade">{{prod.nutrition_grade}}</span>
+                <img src={{prod.image}} class="pic_search_result" name="image">
+              </div>
+            </div>
+              {% endfor %}
+          </div>
+        </div>
+      </section>
+
+{% endblock %}
