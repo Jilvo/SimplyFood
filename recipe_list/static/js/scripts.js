@@ -10,7 +10,7 @@ let add_row = function() {
   buttonClick()
   $("tbody").append(`
   <tr id=tr_row_${row_id}>
-    <td>${row_id}</td>
+    <td>#</td>
     <td><input class='form-control mr-sm-2 input_recipe recipe_input autocomplete-lunch' placeholder='Faire une recherche' name='lunch' id='lunch${row_id}'></td>
     <td><input class='form-control mr-sm-2 input_recipe recipe_input autocomplete-lunch' placeholder='Faire une recherche' name='supper' id='supper_${row_id}'></td>
     <td><input type="button" class="remove btn btn-outline-secondary" onclick="remove_row(${row_id})" value="Remove"/></td>
@@ -70,3 +70,7 @@ let send_json = function(){
       dataType: "json"
     });
 };
+
+let redirect_list = function(){
+  location.replace("list")
+}

@@ -7,3 +7,6 @@ SimplyFood/__init__.py
 SimplyShop/__init__.py
 recipe_list/__pycache__/
 SimplyShop/__pycache__/
+SimplyFood/__pycache__/
+recipe_list/migrations/__pycache__/
+recipe_list/tests/__pycache__/

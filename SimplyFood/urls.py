@@ -26,7 +26,6 @@ urlpatterns = [
     path("404", manage_user_views.page_not_found_view,name="404"),
     path("500", manage_user_views.page_internal_error,name="500"),
     path("legal_mention", recipe_list_views.legal_mention, name='legal_mention'),
-    path("list",recipe_list_views.list_of_recipe,name="list"),
     path("login", manage_user_views.connexion, name="login"),
     path("login_page",manage_user_views.page_signin,name="login_page"),
     path("logout", manage_user_views.logout_view, name="logout"),
@@ -34,5 +33,7 @@ urlpatterns = [
     path("history", recipe_list_views.see_history, name="history"),
     path("recipe", recipe_list_views.find_ingredients, name="recipe"),
     path("name_recipe", recipe_list_views.find_name_recipe, name="name_recipe"),
+    path("list", recipe_list_views.see_list, name="list")
+
     
 ]

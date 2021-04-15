@@ -18,6 +18,9 @@ V0.7 Config DB for the Recipe and User_Recipe_List
 
 V0.8 Add Footer, Legal_Mention
 
+V0.9 Add History Page, page for checking last recipe list, config ManyToMany Objects
+
+--> Covering Test, Deploy App
 <!-- V0.9 Config WeasyPrint for create a PDF with the Recipe List -->
 
 ## Author and Contribution :

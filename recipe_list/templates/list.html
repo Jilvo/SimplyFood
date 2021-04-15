@@ -3,15 +3,23 @@
 {% block content %}
 <!--Custom styles-->
 
-<body id="page-top" class="signup"></body>
-<!--Login Form-->
-<header class="masthead">
-    <section>
+<header class="masthead bg-footer">
+  <section class="bg_footer page-section product " id="choice">
       <div>
-        <div class="recipe_list">Ta liste de courses est composé de :</div>
-    
+        <h3 class="center_text">Ta liste de courses est composé de :</h3>
+        <div class="container">
+          <div class="row">
+            {% for recipe in recipes %}
+            <div class="col center_text history_lign"> {{recipe.name}}</div>
+            <div class="w-100"></div>
+            </div>
+            <div class="row">
+            <div class="col center_text history_lign">{{recipe.description_list}}</div>
+            {% endfor %}
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- <div class="font-color">{{translate_response}}</div> -->
     </section>
 </header>
 {% endblock %}

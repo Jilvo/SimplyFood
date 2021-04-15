@@ -20,13 +20,15 @@
 <!--Login Form-->
 <header class="masthead">
   <section>
+    <div class="container margin_top">
+      <div class="row">
   <!-- <button onclick="Add_Row()">Call function</button> -->
-  <button value="Add a field" class="add" id="add" onclick="add_row()">Ajouter une ligne</button>
+  <button value="Add a field" class="add col-sm btn btn-primary margin_bottom" id="add" onclick="add_row()">Ajouter une ligne</button>
   <!-- <button value="Generate" class="add" id="preview" onclick="extract_to_json()">Generate</button> -->
   <!-- <button value="" class="" id="" onclick="print_input()">Fill in </button> -->
- <!-- <form action="{% url 'recipe' %}" method="GET" accept-charset="utf-8"> -->
-  <button value="json_list" class="" id="json_list" type="submit" onclick="send_json()">Send Json</button>
-    <!-- <p id="query" type="submit"></p> -->
+  <button value="json_list" class="col-sm btn btn-secondary space_btwn_buttons margin_bottom" id="json_list" type="submit" onclick="send_json()">Créer Liste</button>
+  <!-- <form action="{% url 'list' %}" method="GET" accept-charset="utf-8"> -->
+  <button value="see_list" class="col-sm btn btn-secondary margin_bottom" id="see_list" onclick="redirect_list()">Voir ma dernière liste de courses</button>
     <!-- </form> -->
   <table id="table_recipe" class="table table-bordered table-dark">
     <thead>
@@ -40,6 +42,8 @@
     <tbody>
     </tbody>
   </table>
+  </div>
+  </div>
   </section>
 
 </header>
