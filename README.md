@@ -20,6 +20,12 @@ V0.8 Add Footer, Legal_Mention
 
 V0.9 Add History Page, page for checking last recipe list, config ManyToMany Objects
 
+V1.0 All of the task on the roadmap is done, black library, integration with Unix Server
+
+V1.1 Create a manage account page, now we can change the username
+
+<!-- V1.2 Flake8, and starting test -->
+
 --> Covering Test, Deploy App
 <!-- V0.9 Config WeasyPrint for create a PDF with the Recipe List -->
 

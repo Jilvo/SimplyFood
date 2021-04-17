@@ -7,14 +7,11 @@
   <section class="bg_footer page-section product " id="choice">
       <div>
         <h3 class="center_text">Ta liste de courses est composé de :</h3>
+        {% for recipe in recipes %}
         <div class="container">
-          <div class="row">
-            {% for recipe in recipes %}
-            <div class="col center_text history_lign"> {{recipe.name}}</div>
-            <div class="w-100"></div>
+            <div class=" center_text" style='font-size:1.2em'><u><b>{{recipe.name}}</u></b></div>
             </div>
-            <div class="row">
-            <div class="col center_text history_lign">{{recipe.description_list}}</div>
+            <div class=" center_text" style='font-size:1em'>{{recipe.description_list}}</div>
             {% endfor %}
             </div>
           </div>

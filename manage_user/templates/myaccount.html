@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<header class="masthead bg-footer">
+    <section class="bg_footer page-section product " id="choice">
+        <div>
+          <h3 class="center_text margin_bottom">Vous êtes sur la page de gestion de compte :  </h3>
+          <div class="center_text">Votre pseudo est actuellement : "{{user_name.username}}" </div>
+            <form action="{% url 'change_pseudo' %}" method="GET" name="logout" class="align_input margin_bottom">
+                <input class='form-control mr-sm-2 input_recipe recipe_input autocomplete-lunch align' placeholder='{{user_name.username}}' name='change_pseudo' id='change_pseudo'>
+            </form>
+            <div class="center_text">Vous pouvez changer votre mot de passe ici </div>
+            <form action="{% url 'change_password' %}" method="GET" name="logout" class="align_input margin_bottom">
+                <input class='form-control mr-sm-2 input_recipe recipe_input autocomplete-lunch align' placeholder='Ecrivez votre nouveau mot de passe ici' name='change_password' id='change_password'>
+            </form>
+        </section>
+</header>
+{% endblock %}

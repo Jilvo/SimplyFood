@@ -26,6 +26,11 @@ def page_signup(request):
     """display the signup page"""
     return render(request, "signup.html")
 
+def myaccount(request):
+    """display the account page"""
+    username = request.user
+    context = {"user_name": username}
+    return render(request, "myaccount.html",context)
 
 def register(request):
     """function for create a account """
@@ -73,9 +78,31 @@ def connexion(request):
         context = {"ConnexionForm": ConnexionForm()}
         return render(request, "login.html", context)
 
+def change_pseudo(request):
+    query = request.GET.get("change_pseudo")
+    if not query:
+        return render(request, "myaccount.html")
+    else:
+        user_name = request.user
+        user_name.username = query
+        user_name.save()
+        return render(request, "myaccount.html")
+
+def change_password(request):
+    query = request.GET.get("change_password")
+    if not query:
+        return render(request, "myaccount.html")
+    else:
+        user_name = request.user
+        user_name.passord = query
+        user_name.save()
+        return render(request, "index.html")
+
+
 
 def logout_view(request):
     """function who call when a user logout from the website"""
     if request.method == "POST":
         logout(request)
         return render(request, "index.html")
+

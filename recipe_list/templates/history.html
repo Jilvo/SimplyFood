@@ -5,7 +5,8 @@
 <header class="masthead bg-footer">
     <section class="bg_footer page-section product " id="choice">
         <div>
-          <h3 class="center_text"> Voici la liste des produit que vous,({{user_name}}) avez ajoutés en favoris : </h3>
+          <h3 class="center_text "> Voici l'historique des listes de recettes que vous avez recherché dernièrement: </h3>
+          <button value="see_list" class="col-sm btn btn-primary margin_bottom green_not_on_click input_recipe last_recipe_history" id="see_list" onclick="redirect_list()">Voir ma dernière liste de courses</button>
           {% for recipe in recipes %}
           <div class="container">
             <div class="row">

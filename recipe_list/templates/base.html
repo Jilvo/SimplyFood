@@ -29,12 +29,15 @@
               <div class="collapse navbar-collapse" id="navbarResponsive">
                   <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     {% if user.is_authenticated %}
+                    <a class="navbar-brand" href="myaccount">
+                    <div class="history_lign myaccount" style="margin-top: 0em;">Bonjour, {{user}}</div>
+                    <a>
                       <a class="navbar-brand" href="history">
                         <i class="fa fa-history fa-2x history_logo" title="history" ></i>
                       </a>
                       <form action="{% url 'logout' %}" method="POST" name="logout">
                           {% csrf_token %}
-                      <button type="submit" value="logout"><a class="navbar-brand" href="#">
+                      <button type="submit" value="logout"><a class="navbar-brand logout" href="#">
                           <img src="{% static 'assets/img/logout.png' %}" width="30" height="30" alt="logout" title="logout" loading="lazy" id="logout">
                       </a></button>
                       </form>
@@ -66,7 +69,6 @@
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
-
   </body>
 </html>
 

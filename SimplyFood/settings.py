@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'recipe_list',
     'manage_user',
 ]
@@ -105,7 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+# Authentication backends
+AUTHENTICATION_BACKENDS = (
+    'manage_user.backends.EmailAuthBackend',)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

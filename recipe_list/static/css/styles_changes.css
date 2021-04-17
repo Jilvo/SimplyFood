@@ -49,23 +49,39 @@
     background-color: #de9440;
 }
 .center_text{
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
     margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Merriweather Sans", -apple-system, "Segoe UI Symbol";
+    margin-top: 0.2em;
+    font-size: 2em;
+    text-align: center;
 
+}
+.align{
+    text-align: center;
+}
+.align_input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .history_lign{
     
     font-family: 'Roboto', sans-serif;
-    font-size: 1.5em;
+    font-size: 1.5em !important;
 }
 
 .history_logo{
-    color: brown;
+   color: rgba(255, 255, 255, 0.7);
     margin-right: 1em;
 }
 .margin_top{
     margin-top: 4em;
+}
+.margin_top2{
+    margin-top: 1em;
 }
 .margin_bottom{
     margin-bottom: 1.5em ;
@@ -74,7 +90,25 @@
     margin-right: 4em;
     margin-left: 4em;
 }
+.last_recipe_history{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+.myaccount{
+    margin-right: 1em;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Merriweather Sans", -apple-system, "Segoe UI Symbol";
+    margin-top: 0.2em;
+}
+.logout{
+    margin-right: 0em !important;
+}
+.green_not_on_click{
+    background-color: #07A859;
+    border-color: transparent;
 
+}
 @media 
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
@@ -109,4 +143,4 @@ only screen and (max-width: 760px),
 		padding-right: 10px; 
 		white-space: nowrap;
 	}
-	
+}

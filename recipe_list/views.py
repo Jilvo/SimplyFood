@@ -1,31 +1,33 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-import requests
-from google_trans_new import google_translator
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import redirect
+from google_trans_new import google_translator
+
+import requests
 import os
 import json
-from .models import Recipe,User_Recipe_list
+
+from .models import Recipe, User_Recipe_list
 
 # Create your views here.
 
 
-def weasyprint(request):
-    return render(request, "pdf.html")
-
-
 def home_function(request):
+    """Display the home page"""
     return render(request, "index.html")
 
 
 def recipe_table(request):
+    """Display the page, where we create the list of recipe"""
     return render(request, "tab.html")
 
+
 def legal_mention(request):
-    return render(request,"legal_mention.html")
+    """Display Legal Mention Page"""
+    return render(request, "legal_mention.html")
 
 
 @login_required
@@ -90,13 +92,15 @@ def find_ingredients(request):
                 recipe_dict = label["recipe"]
                 name_recipe = recipe_dict["label"]
                 for ingredients in recipe_dict["ingredients"]:
-                    ingredient_recipe[ingredients["text"]] = str(round(ingredients["weight"],2)) + " g"
+                    ingredient_recipe[ingredients["text"]] = (
+                        str(round(ingredients["weight"], 2)) + " g"
+                    )
                 break
             translate_description_recipe = google_translator().translate(
                 ingredient_recipe, lang_tgt="fr"
             )
             translate_recipe_name = google_translator().translate(
-               name_recipe_for_trad, lang_tgt="fr"
+                name_recipe_for_trad, lang_tgt="fr"
             )
             list_name_translated.append(translate_recipe_name)
             global_dict[translate_recipe_name] = translate_description_recipe
@@ -147,13 +151,13 @@ def add_list_recipe_to_db(request, query):
     recipe_list = query
     list_of_object = []
     print(recipe_list)
-    recipe_remove_char = ''.join(recipe_list).replace('[','')
-    recipe_remove_char = ''.join(recipe_remove_char).replace(']','')
-    recipe_remove_char = ''.join(recipe_remove_char).replace('"','').split(',')
+    recipe_remove_char = "".join(recipe_list).replace("[", "")
+    recipe_remove_char = "".join(recipe_remove_char).replace("]", "")
+    recipe_remove_char = "".join(recipe_remove_char).replace('"', "").split(",")
     print(recipe_remove_char)
     new_user_list = User_Recipe_list.objects.create(
-            user_name=username, list_recipe=recipe_remove_char
-            )
+        user_name=username, list_recipe=recipe_remove_char
+    )
     for recipe_name in recipe_remove_char:
         recipe_object = Recipe.objects.get(name=recipe_name)
         list_of_object.append(recipe_object)
@@ -171,25 +175,20 @@ def see_history(request):
     history_list = User_Recipe_list.objects.all().filter(user_name=user_name)
     history_list = history_list[::-1][:5]
     # print(history_list)
-    history_list2 = user_name.lists.order_by('-id').first()
-    # history_list2.recipes.all()
-    print(history_list2.recipes.all().first().description_list)
-    context = {
-        "user_name" : user_name,
-        "recipes":history_list
-    }
+    # history_list2 = user_name.lists.order_by('-id').first()
+    # # history_list2.recipes.all()
+    # print(history_list2.recipes.all().first().description_list)
+    context = {"user_name": user_name, "recipes": history_list}
     return render(request, "history.html", context)
+
 
 @login_required
 def see_list(request):
     """See the list of recipe"""
     user_name = request.user
-    history_list2 = user_name.lists.order_by('-id').first()
+    history_list2 = user_name.lists.order_by("-id").first()
     history_list = history_list2.recipes.all()
 
     print(history_list2)
-    context = {
-        "user_name" : user_name,
-        "recipes":history_list
-    }
+    context = {"user_name": user_name, "recipes": history_list}
     return render(request, "list.html", context)
