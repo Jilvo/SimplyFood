@@ -95,6 +95,9 @@
     margin-left: auto;
     margin-right: auto
 }
+.border_grey{
+    border-color: grey !important;
+}
 .myaccount{
     margin-right: 1em;
     color: rgba(255, 255, 255, 0.7);

@@ -1,0 +1,16 @@
+language: python
+
+os: "linux"
+
+dist: "focal"
+
+python:
+    - "3.8"
+services:
+    - postgresql
+
+install:
+    - pip install -r requirements.txt
+
+script:
+      - python manage.py test

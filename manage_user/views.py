@@ -56,19 +56,13 @@ def register(request):
 
 def connexion(request):
     """function who called when a user try to be connected"""
-    # if request.method == "GET":
-    #     return render(request, "index.html")
     if request.user.is_authenticated:
         return render(request, "index.html")
     if request.method == "POST":
         form = ConnexionForm(request.POST)
         username = request.POST["username"]
         password = request.POST["password"]
-        print(username)
-        print(password)
-
         user = authenticate(username=username, password=password)
-        print(user)
         if user is not None:  # Si l'objet renvoyé n'est pas None
             login(request, user)  # nous connectons l'utilisateur
             return redirect("index")
