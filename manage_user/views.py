@@ -6,6 +6,7 @@ from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.hashers import check_password
 from .forms import ConnexionForm, RegistrationForm
 
+
 # Create your views here.
 def page_not_found_view(request):
     """display the HTML code 404 page"""
@@ -26,11 +27,13 @@ def page_signup(request):
     """display the signup page"""
     return render(request, "signup.html")
 
+
 def myaccount(request):
     """display the account page"""
     username = request.user
     context = {"user_name": username}
-    return render(request, "myaccount.html",context)
+    return render(request, "myaccount.html", context)
+
 
 def register(request):
     """function for create a account """
@@ -72,6 +75,7 @@ def connexion(request):
         context = {"ConnexionForm": ConnexionForm()}
         return render(request, "login.html", context)
 
+
 def change_pseudo(request):
     query = request.GET.get("change_pseudo")
     if not query:
@@ -81,6 +85,7 @@ def change_pseudo(request):
         user_name.username = query
         user_name.save()
         return render(request, "myaccount.html")
+
 
 def change_password(request):
     query = request.GET.get("change_password")
@@ -93,10 +98,8 @@ def change_password(request):
         return render(request, "index.html")
 
 
-
 def logout_view(request):
     """function who call when a user logout from the website"""
     if request.method == "POST":
         logout(request)
         return render(request, "index.html")
-

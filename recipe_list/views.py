@@ -86,7 +86,6 @@ def find_ingredients(request):
             recipe = response.json()["hits"]
             for label in recipe:
                 recipe_dict = label["recipe"]
-                name_recipe = recipe_dict["label"]
                 for ingredients in recipe_dict["ingredients"]:
                     ingredient_recipe[ingredients["text"]] = (
                         str(round(ingredients["weight"], 2)) + " g"
@@ -111,6 +110,7 @@ def find_ingredients(request):
         }
         print(context)
         return redirect("list")
+
 
 @login_required
 def find_an_recipe_or_create_it(
@@ -140,6 +140,7 @@ def add_list_recipe_to_db(request, query):
         list_of_object.append(recipe_object)
         new_user_list.recipes.add(recipe_object)
     new_user_list.save()
+
 
 @login_required
 def see_history(request):

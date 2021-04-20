@@ -19,23 +19,21 @@ from recipe_list import views as recipe_list_views
 from manage_user import views as manage_user_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     path("", recipe_list_views.home_function, name="index"),
-    path("tab",recipe_list_views.recipe_table, name= "tab"),
-    path("404", manage_user_views.page_not_found_view,name="404"),
-    path("500", manage_user_views.page_internal_error,name="500"),
-    path("legal_mention", recipe_list_views.legal_mention, name='legal_mention'),
+    path("tab", recipe_list_views.recipe_table, name="tab"),
+    path("404", manage_user_views.page_not_found_view, name="404"),
+    path("500", manage_user_views.page_internal_error, name="500"),
+    path("legal_mention", recipe_list_views.legal_mention, name="legal_mention"),
     path("login", manage_user_views.connexion, name="login"),
-    path("login_page",manage_user_views.page_signin,name="login_page"),
+    path("login_page", manage_user_views.page_signin, name="login_page"),
     path("logout", manage_user_views.logout_view, name="logout"),
     path("signup", manage_user_views.register, name="signup"),
     path("history", recipe_list_views.see_history, name="history"),
     path("recipe", recipe_list_views.find_ingredients, name="recipe"),
     path("name_recipe", recipe_list_views.find_name_recipe, name="name_recipe"),
     path("list", recipe_list_views.see_list, name="list"),
-    path("myaccount",manage_user_views.myaccount, name='myaccount'),
-    path("change_pseudo",manage_user_views.change_pseudo,name="change_pseudo"),
-    path("change_password",manage_user_views.change_password,name="change_password")
-
-    
+    path("myaccount", manage_user_views.myaccount, name="myaccount"),
+    path("change_pseudo", manage_user_views.change_pseudo, name="change_pseudo"),
+    path("change_password", manage_user_views.change_password, name="change_password"),
 ]
