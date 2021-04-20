@@ -33,13 +33,13 @@ def legal_mention(request):
 @login_required
 def call_api(request, query):
     """this function call the API, in order to obtain recipes"""
-    # API_FOOD_KEY = os.environ.get("API_FOOD_KEY")
+    API_FOOD_KEY = os.environ.get("API_FOOD_KEY")
     translate_query = google_translator().translate(query, lang_tgt="en")
     url = "https://edamam-recipe-search.p.rapidapi.com/search"
 
     querystring = {"q": translate_query}
     headers = {
-        "x-rapidapi-key": '1a40c2e594msh2ded76b4149b2fep16ffb7jsn3c68dce1fa6b',
+        "x-rapidapi-key": API_FOOD_KEY,
         "x-rapidapi-host": "edamam-recipe-search.p.rapidapi.com",
     }
 
