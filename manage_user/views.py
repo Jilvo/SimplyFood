@@ -23,11 +23,6 @@ def page_signin(request):
     return render(request, "login.html")
 
 
-def page_signup(request):
-    """display the signup page"""
-    return render(request, "signup.html")
-
-
 def myaccount(request):
     """display the account page"""
     username = request.user

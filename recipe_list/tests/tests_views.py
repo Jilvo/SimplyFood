@@ -1,9 +1,9 @@
 import sys
 import os
-
 sys.path.append(f"{os.getcwd()}/SimplyFood/")
 from django.test import TestCase
-from django.urls import reverse, NoReverseMatch
+import unittest
+from django.urls import reverse, NoReverseMatch,resolve
 from django.contrib.auth.models import User
 from SimplyFood.wsgi import get_wsgi_application, application, os
 from recipe_list.models import Recipe, User_Recipe_list
@@ -13,7 +13,7 @@ from manage_user import views as manage_user_views
 # Create your tests here.
 
 
-class ModelTest(TestCase):
+class ListTest(TestCase):
     def setUp(self):
         # Create some users
         self.user_1 = User.objects.create_user(
@@ -84,7 +84,7 @@ class PageTestCase(TestCase):
 
     def test_login_page(self):
         """test_login_page"""
-        response = self.client.get(reverse("login"))
+        response = self.client.get(reverse("login_page"))
         self.assertEqual(response.status_code, 200)
 
     def test_signup_page(self):
