@@ -4,7 +4,7 @@ function buttonClick() {
 };
  //add one row
 let add_row = function() {
-    console.log("n-word")
+    console.log("add row")
   let tbody = $("tbody");
   const row_id = tbody.length + i;
   buttonClick()
@@ -25,7 +25,7 @@ let remove_row = function(row_id) {
 };
 // function auto_completion(row_id){
 $('body').on('click', '.input_recipe', function() {
-    console.log("ok boomer")
+    console.log("Click on input")
     $(this).autocomplete({
         source: '/name_recipe',
         minLength: 3,
